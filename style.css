@@ -1,0 +1,607 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+}
+
+/* =========================================================
+   BASE = TELEFONO (mobile-first)
+   ========================================================= */
+
+/* header */
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .25rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: var(--header-h);
+    background-color: var(--header-color);
+    z-index: 1000;
+    box-shadow: 0 1px 4px rgba(0,0,0,.15);
+}
+
+header a img{
+    display: block;
+    height: 2.75rem;
+    width: auto;
+}
+
+header div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 0 .25rem;
+}
+
+header button{
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    padding: .4rem .15rem;
+    font-size: clamp(.72rem, 3.4vw, .95rem);
+    line-height: 1.1;
+    font-family: Hedvig, serif;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+@media (hover: hover) {
+    header button:hover{
+        transform: scale(1.1);
+    }
+}
+
+/* main */
+
+main{
+    position: relative;
+    width: 100%;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* slideshow */
+
+.slides{
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - var(--header-h));
+    min-height: calc(100svh - var(--header-h));
+    transition: transform .6s ease-in-out;
+}
+
+.slides div{
+    min-width: 100%;
+    background-color: var(--orange-logo);
+}
+
+.anniversario,
+.raccolta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 1.25rem 4.75rem;
+    text-align: center;
+}
+
+.anniversario{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.anniversario h1,
+.anniversario h3{
+    width: 100%;
+}
+
+.anniversario h1{
+    font-size: clamp(1.75rem, 9vw, 3rem);
+    line-height: 1.15;
+    font-family: BDOGrotesk, Arial, sans-serif;
+}
+
+.anniversario h3{
+    font-size: clamp(1.25rem, 6vw, 2rem);
+    font-family: Surfer, Arial, sans-serif;
+}
+
+.img18,
+.palloncini{
+    width: 38%;
+    max-width: 180px;
+    height: auto;
+}
+
+.raccolta h1{
+    font-size: clamp(1.6rem, 8vw, 2.75rem);
+    line-height: 1.15;
+    font-family: Hedvig, serif;
+}
+
+.raccolta h3{
+    text-align: left;
+    font-size: clamp(.95rem, 4vw, 1.25rem);
+    font-family: Outfit, Arial, sans-serif;
+    font-weight: 300;
+}
+
+/* immagini decorative fuori dallo schermo (come nell'originale) */
+.pane{
+    position: absolute;
+    top: 60vh;
+    right: -100%;
+    height: 25vh;
+}
+
+.scatola{
+    position: absolute;
+    top: 10vh;
+    left: 105%;
+}
+
+/* frecce: sotto la slide, al centro */
+
+.prev,
+.next{
+    position: absolute;
+    bottom: .75rem;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,.5);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.prev{
+    left: calc(50% - 48px);
+}
+
+.next{
+    right: calc(50% - 48px);
+}
+
+.prev:hover,
+.next:hover{
+    background: rgba(255,255,255,.8);
+    color: black;
+}
+
+/* testi generali */
+
+h2{
+    font-family: Hedvig, serif;
+    font-size: var(--header-size);
+    line-height: 1.1;
+}
+
+h3{
+    font-family: Outfit, Arial, sans-serif;
+    font-size: var(--text-size);
+    font-weight: var(--text-weight);
+    text-align: left;
+}
+
+/* chi siamo */
+
+.who{
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 1.25rem;
+}
+
+.who h3{
+    padding: 1rem 0 0;
+}
+
+.who iframe{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin-top: 1.5rem;
+}
+
+/* volontari */
+
+.member{
+    background-color: var(--red-logo);
+    padding: 0 1.25rem 2.5rem;
+}
+
+.member h2,
+.member h3{
+    color: white;
+}
+
+.member h3{
+    padding: 1rem 0 0;
+}
+
+.member img{
+    display: block;
+    width: calc(100% + 2.5rem);
+    height: 16rem;
+    margin: 0 -1.25rem 1.5rem;
+    object-fit: cover;
+}
+
+/* famiglie solidali */
+
+.family{
+    padding: 2.5rem 1.25rem 2.5rem;
+    background-color: var(--orange-logo);
+}
+
+.family h3{
+    padding: 1rem 0 0;
+}
+
+.circle{
+    position: relative;
+    width: min(80vw, 20rem);
+    aspect-ratio: 1;
+    margin: 2rem auto 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.circle img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* come aiutarci */
+
+.help{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 1.25rem 1rem;
+}
+
+.help h3{
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+}
+
+.help h4{
+    font-size: var(--text-size);
+}
+
+.big{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.small{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    text-align: center;
+}
+
+.small:last-child{
+    border-bottom: 0;
+}
+
+/* !important solo perché nell'HTML c'è un border-right inline;
+   vale solo fuori dal layout desktop, dove il bordo serve */
+@media not all and (min-width: 900px) and (min-height: 600px) {
+    .small{
+        border-right: 0 !important;
+    }
+
+    .pane,
+    .scatola{
+        display: none;
+    }
+}
+
+.small img{
+    width: 60%;
+    max-width: 15rem;
+    height: auto;
+}
+
+.small h4{
+    padding: 1rem 0 0;
+}
+
+.small h3{
+    padding: .75rem 0 0;
+    text-align: center;
+}
+
+/* footer */
+
+footer{
+    width: 100%;
+    height: 6rem;
+    background-color: black;
+}
+
+
+/* =========================================================
+   DESKTOP (>= 900px di larghezza e >= 600px di altezza)
+   Ripristina il layout originale basato su vh/vw
+   ========================================================= */
+
+@media (min-width: 900px) and (min-height: 600px) {
+
+    
+    html{
+        scroll-snap-type: y;
+    }
+
+    /* header */
+
+    header{
+        flex-direction: row;
+        gap: 0;
+        box-shadow: none;
+    }
+
+    header a img{
+        position: absolute;
+        top: 1.5vh;
+        left: 1vw;
+        width: 12vh;
+        height: auto;
+    }
+
+    header div{
+        height: 100%;
+        width: 60vw;
+        justify-content: space-between;
+        padding: 0;
+    }
+
+    header button{
+        flex: none;
+        width: 15vw;
+        padding: 0;
+        font-size: clamp(1rem, 1.9vw, 1.75rem);
+        line-height: normal;
+    }
+
+    section{
+        min-height: 85vh;
+        scroll-snap-align: end;
+    }
+
+    h2{
+        line-height: normal;
+    }
+
+    h3{
+        text-align: justify;
+    }
+
+    /* slideshow */
+
+    .anniversario,
+    .raccolta{
+        display: block;
+        padding: 0;
+        text-align: initial;
+    }
+
+    .anniversario h1{
+        font-size: min(13vh, 6vw);
+        text-align: center;
+        padding: 17vh 0 0 0;
+    }
+
+    .anniversario h3{
+        font-size: min(6vh, 3.2vw);
+        text-align: center;
+        padding: 10vh 0 0 0;
+    }
+
+    .img18,
+    .palloncini{
+        position: absolute;
+        max-width: none;
+        height: auto;
+    }
+
+    .img18{
+        top: 16vh;
+        left: 5vw;
+        width: 20vw;
+    }
+
+    .palloncini{
+        right: 5vw;
+        top: 15vh;
+        width: 18vw;
+    }
+
+    .raccolta h1{
+        font-size: min(12vh, 6vw);
+        text-align: center;
+        padding: 8vh 0 0 0;
+    }
+
+    .raccolta h3{
+        text-align: justify;
+        font-size: min(5vh, 2.3vw);
+        padding: 8vh 15vw 0 15vw;
+    }
+
+    .prev,
+    .next{
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+
+    .prev{
+        left: 15px;
+    }
+
+    .next{
+        right: 15px;
+        left: auto;
+    }
+
+    /* chi siamo */
+
+    .who{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10vw;
+    }
+
+    .who div{
+        width: 50vw;
+        padding: 0 0 10vh 0;
+    }
+
+    .who h3{
+        padding: 7vh 15vw 0 0;
+    }
+
+    .who iframe{
+        width: 30vw;
+        margin-top: 0;
+    }
+
+    /* volontari */
+
+    .member{
+        padding: 10vh 0 0 50vw;
+    }
+
+    .member h3{
+        padding: 7vh 15vw 0 0;
+    }
+
+    .member img{
+        position: absolute;
+        width: auto;
+        height: 85vh;
+        margin: 0;
+        top: 0;
+        left: -10vw;
+        object-fit: fill;
+    }
+
+    /* famiglie solidali: il cerchio scala con --d */
+
+    .family{
+        --d: min(140vh, 75vw);
+        padding: 15vh 0 0 10vw;
+    }
+
+    .family h2{
+        font-size: min(14vh, 7vw);
+    }
+
+    .family h3{
+        padding: 7vh 50vw 0 0;
+    }
+
+    .circle{
+        position: absolute;
+        width: var(--d);
+        height: var(--d);
+        aspect-ratio: auto;
+        margin: 0;
+        top: 50%;
+        right: calc(var(--d) * -0.393);
+        transform: translateY(-50%);
+    }
+
+    .circle img{
+        position: relative;
+        width: auto;
+        height: calc(var(--d) * 0.607);
+        top: calc(var(--d) * 0.196);
+        right: calc(var(--d) * 0.214);
+        object-fit: fill;
+    }
+
+    /* come aiutarci */
+
+    .help{
+        padding: 0;
+    }
+
+    .help h2{
+        font-size: min(12vh, 6vw);
+    }
+
+    .help h3{
+        font-size: clamp(.9rem, 1.4vw, 1.7rem);
+    }
+
+    .big{
+        flex-direction: row;
+        align-items: stretch;
+        min-height: 73vh;
+        margin-top: 0;
+    }
+
+    .small{
+        width: 33%;
+        padding: 2vh 0 0;
+        border-bottom: 0;
+        text-align: initial;
+    }
+
+    .small img{
+        width: 65%;
+        max-width: none;
+    }
+
+    .small h4{
+        padding: 3vh 0 0 0;
+    }
+
+    .small h3{
+        text-align: justify;
+        padding: 3vh 5vw 0 5vw;
+    }
+
+    /* footer */
+
+    footer{
+        height: 30vh;
+        scroll-snap-align: end;
+    }
+}

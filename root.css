@@ -1,0 +1,40 @@
+:root {
+    --header-color: hsl(0, 0%, 98%);
+    --orange-logo: #e8b74e;
+    --red-logo: #DD0A14;
+ 
+    /* Base: telefono */
+    --header-h: 6.5rem;
+    --header-size: clamp(2.25rem, 11vw, 3.5rem);
+    --text-size: clamp(1rem, 4.2vw, 1.25rem);
+    --text-weight: 500;
+}
+ 
+/* Desktop / schermi ampi (e non "landscape da telefono") */
+@media (min-width: 900px) and (min-height: 600px) {
+    :root {
+        --header-h: 15vh;
+        --header-size: min(clamp(6rem, 20vh, 8rem), 8vw);
+        --text-size: min(clamp(1rem, 3.5vh, 2rem), 2.2vw);
+    }
+}
+
+@font-face {
+    font-family: "BDOGrotesk";
+    src: url(fonts/BDOGrotesk-Regular.otf);
+}
+
+@font-face {
+    font-family: "Outfit";
+    src: url(fonts/Outfit-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "Hedvig";
+    src: url(fonts/HedvigLettersSerif-Regular-VariableFont_opsz.ttf);
+}
+
+@font-face {
+    font-family: "Surfer";
+    src: url(fonts/OriginalSurfer-Regular.ttf);
+}
