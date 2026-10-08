@@ -139,7 +139,7 @@ section{
 }
 
 .raccolta h3{
-    text-align: left;
+    text-align: center;
     font-size: clamp(.95rem, 4vw, 1.25rem);
     font-family: Outfit, Arial, sans-serif;
     font-weight: 300;
@@ -156,7 +156,7 @@ section{
 .scatola{
     position: absolute;
     top: 10vh;
-    left: 105%;
+    left: 101%;
 }
 
 /* frecce: sotto la slide, al centro */
@@ -314,8 +314,6 @@ h3{
     border-bottom: 0;
 }
 
-/* !important solo perché nell'HTML c'è un border-right inline;
-   vale solo fuori dal layout desktop, dove il bordo serve */
 @media not all and (min-width: 900px) and (min-height: 600px) {
     .small{
         border-right: 0 !important;
@@ -351,10 +349,7 @@ footer{
 }
 
 
-/* =========================================================
-   DESKTOP (>= 900px di larghezza e >= 600px di altezza)
-   Ripristina il layout originale basato su vh/vw
-   ========================================================= */
+/*DESKTOP (>= 900px di larghezza e >= 600px di altezza)*/
 
 @media (min-width: 900px) and (min-height: 600px) {
 
@@ -454,7 +449,7 @@ footer{
     }
 
     .raccolta h3{
-        text-align: justify;
+        text-align: center;
         font-size: min(5vh, 2.3vw);
         padding: 8vh 15vw 0 15vw;
     }
